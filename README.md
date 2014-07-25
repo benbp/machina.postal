@@ -30,6 +30,12 @@ The plugin consists of an object literal with the following members:
 Including the plugin wires it into both postal.js and machina.js - just be sure to include it *after* you include the other two (if you're not going AMD).  Here's a contrived snippet of how it could work:
 
 ```javascript
+    var _ = require('lodash'),
+        machina = require('machina')(_),
+        postal = require('postal');
+
+    require('machina.postal')(machina, postal);
+
 	// Let's set up a subscription that will write to the console
 	postal.subscribe({
 		channel: "hunger.machine.events",
